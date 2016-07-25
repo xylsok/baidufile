@@ -26,12 +26,17 @@ public class FileCenterSerivceImpl implements FilesSerivce{
     }
 
     @Override
-    public Integer delById(Integer id,String path) {
-        return filesDao.deleteById(id,path);
+    public Integer delById(Integer id) {
+        return filesDao.deleteById(id);
     }
 
     @Override
-    public List<FileCenter> searchFile(String name, String tag) {
-        return filesDao.searchFile(name,tag);
+    public List<FileCenter> searchFile(String name) {
+        return filesDao.searchFile(name);
+    }
+
+    @Override
+    public List<FileCenter> getFiles() {
+        return filesDao.getFiles();
     }
 }

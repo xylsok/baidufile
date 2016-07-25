@@ -1,0 +1,114 @@
+.uploader {
+  /*background-color: rgba(255, 0, 255, 0.15);*/
+  /*margin: 20px;*/
+  border: solid 1px rgba(0, 148, 255, 0.50);
+  padding: 10px;
+}
+
+.uploader.slim {
+  padding: 0px;
+  border: none;
+}
+
+.uploader-ctrl {
+  padding-right: 100px;
+  position: relative;
+}
+
+.uploader-ctrl > input {
+  border-radius: 0px;
+}
+
+.uploader-ctrl > button {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  width: 90px;
+}
+
+.uploader-info > div {
+  margin-top: 10px;
+  margin-bottom: 0px;
+  padding: 5px 10px;
+  border-radius: 0px;
+}
+
+/*MIN*/
+.uploader-ctrl.min {
+  padding-right: 0px;
+}
+
+.uploader-ctrl.min > input {
+  display: none;
+}
+
+.uploader-ctrl.min > button {
+  position: static;
+  width: 100%;
+}
+
+.uploader-edit {
+  margin-top: 10px;
+  border-top: dotted 1px rgba(0, 148, 255, 0.50);
+}
+
+.uploader-edit > div {
+  padding-left: 80px;
+  position: relative;
+  margin-top: 12px;
+}
+
+.uploader-edit-name {
+  position: absolute;
+  font-weight: bold;
+  top: 5px;
+  left: 0;
+  width: 80px;
+  text-align: center;
+
+}
+
+.uploader-edit button {
+  /*margin-top: 5px;*/
+  width: 70px;
+}
+
+.uploader-display-item {
+  /*background-color: #ffc520;*/
+  border: solid 1px #ccc;
+  display: inline-block;
+  padding: 4px 10px;
+  margin-right: 10px;
+}
+
+.uploader-display-item:hover {
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+.uploader-display-item.active {
+  border: solid 1px #0094ff;
+}
+
+.uploader_progress {
+  /*background-color: #eee;*/
+  height: 1px;
+  position: absolute;
+  right: 0px;
+  bottom: 2px;
+  width: 90px;
+  padding: 0px 3px;
+}
+
+.uploader-ctrl.min > .uploader_progress {
+  position: absolute;
+  right: 0px;
+  left: 0px;
+  bottom: 2px;
+  width: 100%;
+}
+
+.uploader_progress > div {
+  background-color: #fff;
+  height: 1px;
+}

@@ -1,0 +1,46 @@
+<div class="uploader" ng-class="{slim:workstate=='min'}">
+	<form name="myForm" novalidate>
+		<!--CONTROL-->
+		<div class="uploader-ctrl" ng-class="{min:workstate=='min'}">
+			<input id="uploader_file" class="form-control input-sm metro" type="file" ng-model="file" name="file"
+				   required
+				   ngf-validate={{extensionSet[extension]}}
+				   ngf-model-invalid="errorFiles"
+				   ngf-select="atSelect($file, $invalidFiles,myForm)"
+				   ng-disabled="isWorking">
+			<button id="uploader_btn" class="btn btn-sm btn-success metro" ng-disabled="isWorking"
+					ng-click="atClick(myForm)" ng-switch="isWorking">
+				<span ng-switch-when="true"><i class="fa fa-spin fa-spinner"></i> </span>
+				<span ng-switch-when="false">{{text||'上传文件'}}</span>
+			</button>
+			<div class="uploader_progress" ng-if="isWorking">
+				<div style="width:{{file.progress}}%"></div>
+			</div>
+		</div>
+		<!--EDIT-->
+		<div class="uploader-edit" ng-if="success.guid">
+			<div>
+				<div class="uploader-edit-name">显示名称</div>
+				<input class="form-control input-sm metro" ng-model="success.name" placeholder="">
+			</div>
+			<div ng-if="isMedia(success.name)">
+				<div class="uploader-edit-name">显示方式</div>
+				<div>
+					<div class="uploader-display-item" ng-repeat="m in MediaSet"
+						 ng-class="{active:m.val==success.view}" ng-click="success.view=m.val">{{m.str}}
+					</div>
+				</div>
+			</div>
+			<div>
+				<button class="btn btn-sm btn-primary metro" ng-click="atSave()">保存</button>
+				<button class="btn btn-sm btn-default metro" ng-click="atCancel()">取消</button>
+			</div>
+		</div>
+		<!--INFO-->
+		<div class="uploader-info" ng-if="workstate!='min'">
+			<div class="alert alert-warning" ng-if="isInvalid"><i class="fa fa-info-circle"></i> {{isInvalid}}</div>
+			<div class="alert alert-danger" ng-if="errorMsg"><i class="fa fa-warning"></i> {{errorMsg}}</div>
+		</div>
+	</form>
+</div>
+

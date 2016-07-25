@@ -1,0 +1,125 @@
+
+<!doctype html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" path="ie=edge">
+    <meta name="renderer" path="webkit">
+    <base href="/">
+    <title></title>
+    <meta name="description" path="">
+    <meta name="viewport" path="width=device-width, initial-scale=1,maximum-scale=1.0, user-scalable=0">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) assets/styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="apidoc/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="apidoc/font-awesome/css/font-awesome.css"/>
+    <link rel="stylesheet" href="apidoc/footer.css"/>
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css({.tmp,client}) assets/styles/app.css -->
+    <link rel="stylesheet" href="apidoc/app.css">
+    <link rel="stylesheet" href="apidoc/uploader/uploader.css">
+    <!-- injector:css -->
+
+
+    <!-- endinjector -->
+    <!-- endbuild -->
+</head>
+<!--<body ng-app="baidufile-ui">-->
+<!--[if lt IE 9]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your
+    experience.</p>
+<![endif]-->
+<!-- Add your site or application path here -->
+<div ui-view=""></div>
+
+
+<!--[if lt IE 9]>
+<script src="apidoc/json3/lib/json3.min.js"></script>
+<![endif]-->
+<!-- build:js(.) app/vendor.js -->
+<!-- bower:js -->
+<script src="apidoc/angular/angular.js"></script>
+<script src="apidoc/index.js"></script>
+<script src="apidoc/jquery/dist/jquery.js"></script>
+<script src="apidoc/json3/lib/json3.js"></script>
+<script src="apidoc/bootstrap/dist/js/bootstrap.js"></script>
+<script src="apidoc/angular-resource/angular-resource.js"></script>
+<script src="apidoc/angular-cookies/angular-cookies.js"></script>
+<script src="apidoc/angular-sanitize/angular-sanitize.js"></script>
+<script src="apidoc/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<script src="apidoc/lodash/dist/lodash.compat.js"></script>
+<script src="apidoc/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="apidoc/angular-validation-match/dist/angular-validation-match.min.js"></script>
+<script src="apidoc/ng-file-upload/ng-file-upload.js"></script>
+
+<div class="navbar navbar-default navbar-static-top" ng-controller="NavbarCtrl">
+    <div class="navbar-header">
+        <a href="/" class="navbar-brand">
+            <img alt="baiduwaimai-logo" src="apidoc/logo.png" width="120px" height="40px" style="margin-top: -10px">
+        </a>
+    </div>
+</div>
+<body>
+<div ng-app="myApp">
+    <div class="container" ng-controller="PlayCtrl">
+        <div class="row">
+            <div class="col-md-10">
+                <!--图片-->
+                <div ng-if="file.type === 'png'||file.type === 'jpg'||file.type === 'gif'||file.type === 'jpeg'">
+                    <div class="thumbnail photo-thumbnail gap-bottom0x">
+                        <img ng-src="{{file.path}}"/>
+                    </div>
+                </div>
+                <!--视频-->
+                <div ng-if="file.type === 'flv'|| file.type === 'mp4'">
+                    <video id="vd" autoplay width="100%"
+                           height="450px" controls="controls"
+                           ng-src="{{file.path}}"
+                           poster="" preload="preload">
+                        您的浏览器不支持 HTML5 Video 标签
+                    </video>
+                </div>
+                <!--音频-->
+                <div ng-if="file.type === 'mp3'">
+                    <div class="text-center">
+                        <div class="audio-src">
+                            <i class="fa fa-volume-up fa-4x"></i>
+                        </div>
+                        <div class="audio-ctl">
+                            <audio id="au" autoplay controls="controls" ng-src="{{file.path}}">
+                                您的浏览器不支持 HTML5 Audio 标签
+                            </audio>
+                        </div>
+                    </div>
+                </div>
+                <!--pdf-->
+                <div ng-if="file.type === 'pdf'">
+                    <div class="text-center  visible-sm visible-md visible-lg">
+                        <iframe width="100%" height="600px" ng-src="{{file.path}}"
+                                ng-if="!isIEBrowser"></iframe>
+                        <h3 ng-if="isIEBrowser" class="IE-Alert-text IE-Alert">提示:请安装PDF预览插件或<br>点击右侧下载按钮,下载到本地观看！
+                        </h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <input type="button" value="下载">
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<div class="footer-head"></div>
+
+

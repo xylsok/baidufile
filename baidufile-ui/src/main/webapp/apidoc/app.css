@@ -1,0 +1,205 @@
+/**
+ * App-wide Styles
+ */
+
+.browserupgrade {
+	margin: 0.2em 0;
+	background: #ccc;
+	color: #000;
+	padding: 0.2em 0;
+}
+
+.fx-splitter {
+	padding-right: 20px;
+}
+
+/*颜色描述部分*/
+.color-gray {
+	color: #cccccc;
+}
+
+/*文字修改部分*/
+.text-comment {
+	font-style: italic;
+	color: #aaaaaa;
+}
+
+/*边栏项目的样式*/
+.widget {
+	padding: 10px 0px 10px 0px;
+}
+
+.widget .widget-title {
+	border-bottom: solid 1px #ccc;
+	margin-bottom: 10px;
+	font-weight: bold;
+	padding-bottom: 5px;
+	font-size: 16px;
+	/*background-color: rgba(210, 50, 45, 0.13);*/
+}
+
+.widget .widget-title .widget-title-right {
+	font-size: 0.5em;
+	color: rgb(72, 177, 255);
+	cursor: pointer;
+}
+
+.widget .widget-content {
+	/*background-color: rgba(255, 0, 255, 0.09);*/
+
+}
+
+.widget .widget-content div {
+	margin: 5px 0px;
+}
+
+/*边框设置*/
+.mgl-50 {
+	margin-left: 50px;
+}
+
+/*元素最大占用空间设置*/
+.max-16 {
+	max-width: 16px;
+	max-height: 16px;
+}
+
+.max-32 {
+	max-width: 32px;
+	max-height: 32px;
+}
+
+.max-64 {
+	max-width: 64px;
+	max-height: 64px;
+}
+
+.max-80 {
+	max-width: 80px;
+	max-height: 80px;
+}
+
+.max-128 {
+	max-width: 128px;
+	max-height: 128px;
+}
+
+.max-260 {
+	max-width: 260px;
+	max-height: 260px;
+}
+
+.max-360 {
+	max-width: 360px;
+	max-height: 360px;
+}
+
+.max-460 {
+	max-width: 460px;
+	max-height: 460px;
+}
+
+.td-f30 {
+	width: 30px;
+}
+
+.td-f30 {
+	width: 30px;
+}
+
+.td-f40 {
+	width: 40px;
+}
+
+.td-f50 {
+	width: 50px;
+}
+
+.td-f60 {
+	width: 60px;
+}
+
+.td-f80 {
+	width: 80px;
+}
+
+.td-f100 {
+	width: 100px;
+}
+
+.td-f120 {
+	width: 120px;
+}
+
+.editable-open {
+	display: inline-block;
+	font-size: 14px;
+	cursor: pointer;
+	color: #48b1ff;
+}
+
+.editable-remove {
+	display: inline-block;
+	text-align: right;
+	font-size: 32px;
+	cursor: pointer;
+}
+
+/*弹出框*/
+.mask {
+	background-color: #ccc;
+	width: 100%;
+	height: 100%;
+	z-index: 99999998;
+	left: 0;
+	top: 0;
+	filter: alpha(opacity=50);
+	opacity: .5;
+	position: fixed !important;
+	position: absolute;
+}
+
+.popup {
+	width: 600px;
+	border: 1px solid #6E665A;
+	border-radius: 5px;
+	background: #ffffff;
+	position: absolute;
+	z-index: 99999999;
+	left: 50%; /*FF IE7*/
+	top: 20%; /*FF IE7*/
+	margin-left: -220px !important; /*FF IE7 该值为本身宽的一半 */
+	margin-top: -50px !important; /*FF IE7 该值为本身高的一半*/
+	margin-top: 0px;
+	position: fixed !important; /*FF IE7*/
+	position: absolute; /*IE6*/
+	_top: expression(eval(document.compatMode && document.compatMode=='CSS1Compat') ? documentElement.scrollTop + (document.documentElement.clientHeight-this.offsetHeight)/2 :/*IE6*/
+ document.body.scrollTop + (document.body.clientHeight - this.clientHeight)/2); /*IE5 IE5.5*/
+}
+
+@media (max-width: 768px) {
+	.popup {
+		left: 70%; /*FF IE7*/
+		width: 300px;
+	}
+}
+
+@media (min-width: 922px) {
+	.popup {
+		left: 50%; /*FF IE7*/
+		width: 400px;
+	}
+}
+
+@media (min-width: 1200px) {
+	.popup {
+		left: 50%; /*FF IE7*/
+		width: 600px;
+	}
+}
+
+.popup-content {
+	padding: 10px;
+	/*height: 450px;*/
+	OVERFLOW-y: scroll;
+}

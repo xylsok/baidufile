@@ -12,7 +12,9 @@ public interface FilesSerivce {
 
     FileCenter getFileById(Integer id);
 
-    Integer delById(Integer id,String path);
+    Integer delById(Integer id);
 
-    List<FileCenter> searchFile(String name, String tag);
+    List<FileCenter> searchFile(String name);
+
+    List<FileCenter> getFiles();
 }

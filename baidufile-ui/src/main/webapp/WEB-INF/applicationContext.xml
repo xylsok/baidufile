@@ -28,7 +28,7 @@
         <property name="version" value="1.0.0"/>
         <!--<property name="host" value="localhost:8080"/>-->
         <property name="basePath" value="/api"/>
-        <property name="title" value="百度外卖文件中心"/>
+        <property name="title" value="文件中心"/>
         <property name="scan" value="true"/>
     </bean>
 

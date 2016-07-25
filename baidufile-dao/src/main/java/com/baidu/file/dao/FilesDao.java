@@ -48,13 +48,14 @@ public class FilesDao extends JooqDao<FileCenterRecord, FileCenter, String> {
         return null;
     }
 
-    public Integer deleteById(Integer id, String path) {
+    public Integer deleteById(Integer id) {
+        FileCenter fi = getFileById(id);
         Integer status = create().delete(FILE_CENTER)
                 .where(FILE_CENTER.ID.eq(id))
                 .execute();
         if (status == 1) {
             try {
-                File file = new File(path);
+                File file = new File(fi.getPath());
                 // 路径为文件且不为空则进行删除
                 if (file.isFile() && file.exists()) {
                     file.delete();
@@ -66,10 +67,19 @@ public class FilesDao extends JooqDao<FileCenterRecord, FileCenter, String> {
         return status;
     }
 
-    public List<FileCenter> searchFile(String name, String tag) {
+    public List<FileCenter> searchFile(String name) {
         Result<FileCenterRecord> fetch = create().selectFrom(FILE_CENTER)
-                .where(FILE_CENTER.NAME.like("%" + name + "%").or(FILE_CENTER.TAG.like("%" + tag + "%")))
+                .where(FILE_CENTER.NAME.like("%" + name + "%").or(FILE_CENTER.TAG.like("%" + name + "%")))
                 .fetch();
+        if (fetch.size() > 0) {
+            return fetch.into(FileCenter.class);
+        } else {
+            return new ArrayList<FileCenter>();
+        }
+    }
+
+    public List<FileCenter> getFiles() {
+        Result<FileCenterRecord> fetch = create().selectFrom(FILE_CENTER).orderBy(FILE_CENTER.UPLOAD_TIME.desc()).fetch();
         if (fetch.size() > 0) {
             return fetch.into(FileCenter.class);
         } else {

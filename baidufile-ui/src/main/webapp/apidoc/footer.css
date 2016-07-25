@@ -1,0 +1,93 @@
+footer.footer {
+    font-size: 12px;
+    display: block;
+    padding: 10px 0px;
+    margin: 0px 20px 0px 20px;
+    border-top: 1px solid #cccccc;
+    position: relative;
+}
+
+.footer-head {
+    font-size: 14px;
+    color: #bbbbbb;
+}
+
+footer.footer > ul {
+    display: block;
+    position: absolute;
+    right: 0px;
+    top: 12px;
+    float: right !important;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: block;
+    text-align: right;
+    /*background-color: #ffc520;*/
+}
+
+footer.footer > ul > li {
+    display: inline;
+    padding: 0px 5px;
+}
+
+footer.footer > ul > li:first-child {
+    padding-left: 0px;
+}
+
+footer.footer > ul > li:last-child {
+    padding-right: 0px;
+}
+
+footer.footer > ul > li > a {
+    color: #999;
+}
+
+footer.footer > ul > li > a:hover {
+    color: #666;
+}
+
+/*footer.footer.full*/
+
+.footer-info {
+    text-align: right;
+    color: #555;
+    padding-top: 3px;
+}
+
+footer.footer.full {
+    margin: 0px;
+    background-color: #e3e3e3;
+}
+
+.footer.footer.full > .footer-head {
+    display: none;
+}
+
+footer.footer.full > ul {
+    text-align: center;
+    position: static;
+}
+
+footer.footer.full > .footer-info {
+    text-align: center;
+}
+
+/*小屏幕*/
+@media (max-width: 768px) {
+    .footer-head {
+        display: none;
+        text-align: center;
+        padding-bottom: 3px;
+    }
+
+    footer.footer > ul {
+        text-align: center;
+        position: static;
+        width: 100%;
+    }
+
+    .footer-info {
+        text-align: center;
+    }
+}
