@@ -1122,7 +1122,6 @@
         <profile>
             <id>dev</id>
             <properties>
-                <!--git@github.com:xylsok/baidufile.git-->
                 <global.environment>default</global.environment>
                 <!--<dubbo.registry.address>192.168.1.12:2181</dubbo.registry.address>-->
                 <!--<dubbo.protocol.port>20880</dubbo.protocol.port>-->
