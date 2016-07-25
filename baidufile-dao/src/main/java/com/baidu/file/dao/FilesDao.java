@@ -2,11 +2,14 @@ package com.baidu.file.dao;
 
 import com.baidu.tables.records.FileCenterRecord;
 import com.baidu.file.api.FileCenter;
+import org.jooq.Result;
 import org.springframework.stereotype.Component;
 
 import java.io.File;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import static com.baidu.tables.FileCenter.FILE_CENTER;
 
@@ -61,5 +64,16 @@ public class FilesDao extends JooqDao<FileCenterRecord, FileCenter, String> {
             }
         }
         return status;
+    }
+
+    public List<FileCenter> searchFile(String name, String tag) {
+        Result<FileCenterRecord> fetch = create().selectFrom(FILE_CENTER)
+                .where(FILE_CENTER.NAME.like("%" + name + "%").or(FILE_CENTER.TAG.like("%" + tag + "%")))
+                .fetch();
+        if (fetch.size() > 0) {
+            return fetch.into(FileCenter.class);
+        } else {
+            return new ArrayList<FileCenter>();
+        }
     }
 }

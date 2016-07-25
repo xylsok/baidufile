@@ -147,10 +147,18 @@ public class FileCenterWeb {
     public FileCenter geFileById(@PathParam("id") Integer id) {
         return filesSerivce.getFileById(id);
     }
+
     @GET
+    @Path("getsearchfile")
+    @ApiOperation(value = "搜索文件", notes = "搜索文件")
+    public List<FileCenter> searchFile(@QueryParam("name") String name, @QueryParam("tag") String tag) {
+        return filesSerivce.searchFile(name, tag);
+    }
+
+    @DELETE
     @Path("del/{id}/{path}")
     @ApiOperation(value = "根据ID删除文件", notes = "根据ID删除文件")
-    public Integer delFileById(@PathParam("id") Integer id,@PathParam("path") String path) {
-        return filesSerivce.delById(id,path);
+    public Integer delFileById(@PathParam("id") Integer id, @PathParam("path") String path) {
+        return filesSerivce.delById(id, path);
     }
 }

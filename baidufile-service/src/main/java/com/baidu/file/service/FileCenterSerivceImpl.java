@@ -6,6 +6,7 @@ import com.baidu.file.dao.FilesDao;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * Created by zhangzf on 16/7/24.
@@ -27,5 +28,10 @@ public class FileCenterSerivceImpl implements FilesSerivce{
     @Override
     public Integer delById(Integer id,String path) {
         return filesDao.deleteById(id,path);
+    }
+
+    @Override
+    public List<FileCenter> searchFile(String name, String tag) {
+        return filesDao.searchFile(name,tag);
     }
 }
