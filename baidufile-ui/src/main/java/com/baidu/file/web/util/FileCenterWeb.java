@@ -143,8 +143,14 @@ public class FileCenterWeb {
 
     @GET
     @Path("getfile/{id}")
-    @ApiOperation(value = "上传文件", notes = "上传文件")
+    @ApiOperation(value = "根据ID查找文件", notes = "根据ID查找文件")
     public FileCenter geFileById(@PathParam("id") Integer id) {
         return filesSerivce.getFileById(id);
+    }
+    @GET
+    @Path("del/{id}/{path}")
+    @ApiOperation(value = "根据ID删除文件", notes = "根据ID删除文件")
+    public Integer delFileById(@PathParam("id") Integer id,@PathParam("path") String path) {
+        return filesSerivce.delById(id,path);
     }
 }

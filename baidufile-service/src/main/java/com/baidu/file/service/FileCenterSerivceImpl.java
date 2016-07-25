@@ -23,4 +23,9 @@ public class FileCenterSerivceImpl implements FilesSerivce{
     public FileCenter getFileById(Integer id) {
         return filesDao.getFileById(id);
     }
+
+    @Override
+    public Integer delById(Integer id,String path) {
+        return filesDao.deleteById(id,path);
+    }
 }

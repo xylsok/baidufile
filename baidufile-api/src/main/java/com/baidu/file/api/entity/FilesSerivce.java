@@ -9,4 +9,6 @@ public interface FilesSerivce {
     FileCenter uploadFile(FileCenter fileCenter);
 
     FileCenter getFileById(Integer id);
+
+    Integer delById(Integer id,String path);
 }

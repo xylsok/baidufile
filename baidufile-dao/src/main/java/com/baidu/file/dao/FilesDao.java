@@ -4,6 +4,7 @@ import com.baidu.tables.records.FileCenterRecord;
 import com.baidu.file.api.FileCenter;
 import org.springframework.stereotype.Component;
 
+import java.io.File;
 import java.sql.Timestamp;
 import java.util.Date;
 
@@ -42,5 +43,23 @@ public class FilesDao extends JooqDao<FileCenterRecord, FileCenter, String> {
             return fileCenterRecord.into(FileCenter.class);
         }
         return null;
+    }
+
+    public Integer deleteById(Integer id, String path) {
+        Integer status = create().delete(FILE_CENTER)
+                .where(FILE_CENTER.ID.eq(id))
+                .execute();
+        if (status == 1) {
+            try {
+                File file = new File(path);
+                // 路径为文件且不为空则进行删除
+                if (file.isFile() && file.exists()) {
+                    file.delete();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return status;
     }
 }
