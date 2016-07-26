@@ -73,7 +73,7 @@
 <div ng-app="myApp">
     <div class="container" ng-controller="PlayCtrl">
         <div class="row">
-            <div class="col-md-10">
+            <div class="col-md-12">
                 <!--图片-->
                 <div ng-if="file.type === 'png'||file.type === 'jpg'||file.type === 'gif'||file.type === 'jpeg'">
                     <div class="thumbnail photo-thumbnail gap-bottom0x">
@@ -107,21 +107,10 @@
                     <div class="text-center  visible-sm visible-md visible-lg">
                         <iframe width="100%" height="600px" ng-src="{{file.path}}"
                                 ng-if="!isIEBrowser"></iframe>
-                        <h3 ng-if="isIEBrowser" class="IE-Alert-text IE-Alert">提示:请安装PDF预览插件或<br>点击右侧下载按钮,下载到本地观看！
+                        <h3 ng-if="isIEBrowser" class="IE-Alert-text IE-Alert">提示:请安装PDF预览插件或<br>
                         </h3>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-2">
-                <a href="{{file.path}}" class="btn btn-primary btn-sm" >
-                    <i class="fa fa-cloud-download" aria-hidden="true"></i>
-                    下载
-                </a>
-                <br>
-                <a href="#" class="btn btn-warning btn-sm" ng-click="close()">
-                    <i class="fa fa-sign-out" aria-hidden="true"></i>
-                    关闭
-                </a>
             </div>
         </div>
     </div>
