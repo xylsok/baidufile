@@ -19,14 +19,14 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) assets/styles/vendor.css -->
     <!-- bower:css -->
-    <link rel="stylesheet" href="apidoc/bootstrap/dist/css/bootstrap.css"/>
-    <link rel="stylesheet" href="apidoc/font-awesome/css/font-awesome.css"/>
-    <link rel="stylesheet" href="apidoc/footer.css"/>
+    <!--<link rel="stylesheet" href="apidoc/bootstrap/dist/css/bootstrap.css"/>-->
+    <!--<link rel="stylesheet" href="apidoc/font-awesome/css/font-awesome.css"/>-->
+    <!--<link rel="stylesheet" href="apidoc/footer.css"/>-->
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css({.tmp,client}) assets/styles/app.css -->
-    <link rel="stylesheet" href="apidoc/app.css">
-    <link rel="stylesheet" href="apidoc/uploader/uploader.css">
+    <!--<link rel="stylesheet" href="apidoc/app.css">-->
+    <!--<link rel="stylesheet" href="apidoc/uploader/uploader.css">-->
     <!-- injector:css -->
 
 
@@ -44,24 +44,24 @@
 
 
 <!--[if lt IE 9]>
-<script src="apidoc/json3/lib/json3.min.js"></script>
+<!--<script src="apidoc/json3/lib/json3.min.js"></script>-->
 <![endif]-->
 <!-- build:js(.) app/vendor.js -->
 <!-- bower:js -->
-<script src="apidoc/angular/angular.js"></script>
-<script src="apidoc/index.js"></script>
-<script src="apidoc/jquery/dist/jquery.js"></script>
-<script src="apidoc/json3/lib/json3.js"></script>
-<script src="apidoc/bootstrap/dist/js/bootstrap.js"></script>
-<script src="apidoc/angular-resource/angular-resource.js"></script>
-<script src="apidoc/angular-cookies/angular-cookies.js"></script>
-<script src="apidoc/angular-sanitize/angular-sanitize.js"></script>
-<script src="apidoc/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-<script src="apidoc/lodash/dist/lodash.compat.js"></script>
-<script src="apidoc/angular-ui-router/release/angular-ui-router.js"></script>
-<script src="apidoc/angular-validation-match/dist/angular-validation-match.min.js"></script>
-<script src="apidoc/ng-file-upload/ng-file-upload.js"></script>
-
+<!--<script src="apidoc/angular/angular.js"></script>-->
+<!--<script src="apidoc/index.js"></script>-->
+<!--<script src="apidoc/jquery/dist/jquery.js"></script>-->
+<!--<script src="apidoc/json3/lib/json3.js"></script>-->
+<!--<script src="apidoc/bootstrap/dist/js/bootstrap.js"></script>-->
+<!--<script src="apidoc/angular-resource/angular-resource.js"></script>-->
+<!--<script src="apidoc/angular-cookies/angular-cookies.js"></script>-->
+<!--<script src="apidoc/angular-sanitize/angular-sanitize.js"></script>-->
+<!--<script src="apidoc/angular-bootstrap/ui-bootstrap-tpls.js"></script>-->
+<!--<script src="apidoc/lodash/dist/lodash.compat.js"></script>-->
+<!--<script src="apidoc/angular-ui-router/release/angular-ui-router.js"></script>-->
+<!--<script src="apidoc/angular-validation-match/dist/angular-validation-match.min.js"></script>-->
+<!--<script src="apidoc/ng-file-upload/ng-file-upload.js"></script>-->
+<link rel="import" href="navbar.html">
 <div class="navbar navbar-default navbar-static-top" ng-controller="NavbarCtrl">
     <div class="navbar-header">
         <a href="/" class="navbar-brand">
@@ -69,8 +69,10 @@
         </a>
     </div>
 </div>
+
 <body>
 <div ng-app="myApp">
+    <link rel="import" href="navbar.html">
     <div class="container" ng-controller="PlayCtrl">
         <div class="row">
             <div class="col-md-12">
