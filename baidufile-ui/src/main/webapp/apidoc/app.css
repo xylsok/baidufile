@@ -203,3 +203,138 @@
 	/*height: 450px;*/
 	OVERFLOW-y: scroll;
 }
+.btn-qq {
+	color: #fff;
+	background-color: #3B5998;
+	border-color: #133783;
+}
+
+.btn-weixin {
+	color: #fff;
+	background-color: #308411;
+	border-color: #206112;
+}
+
+.btn-weibo {
+	color: #fff;
+	background-color: #dd4b39;
+	border-color: #c53727;
+}
+
+.login-box {
+	margin: 100px auto;
+	width: 400px;
+}
+
+@media (max-width: 480px) {
+	.login-box {
+		width: auto;
+	}
+}
+
+.login-pad {
+	background-color: #fff;
+	padding: 30px 30px 40px 30px;
+	border: solid 1px #ddd;
+}
+
+.login-act {
+	background-color: #f0f0f0;
+	border: solid 1px #ddd;
+	margin-top: -1px;
+	padding: 10px 30px 20px 30px;
+}
+
+.login-title {
+	/*font-size: 20px;*/
+	/*border-bottom: solid 1px #f2f2f2;*/
+	margin-bottom: 20px;
+	/*padding-bottom: 5px;*/
+}
+
+.login-with {
+	font-size: 12px;
+	padding: 2px 0px;
+	color: #777;;
+}
+
+.login-act .btn {
+	width: 22px;
+}
+
+.x-box {
+	position: relative;
+}
+
+.x-box label {
+	position: absolute;
+	font-size: 16px;
+	top: 8px;
+	left: 11px;
+	color: #888;
+}
+
+.x-box input {
+	padding-left: 34px;
+}
+
+.alert-min {
+	padding: 7px;
+}
+
+.error {
+	color: red;
+}
+
+.iplogin-title {
+	margin-top: 15px;
+	font-size: 20px;
+	/*border-bottom: solid 1px #f2f2f2;*/
+	border-top: solid 1px #f2f2f2;
+	margin-bottom: 0px;
+}
+
+.product-name {
+	color: rgb(38, 171, 227);
+	font-size: 18px;
+	/*padding-top: 5px;*/
+}
+
+.auto-login {
+	position: relative;
+	/*background-color: #0094ff;*/
+	margin-top: 30px;
+	text-align: center;
+	padding: 18px 0px;
+	border: dotted 1px #ccc;
+}
+
+.auto-login-title {
+	position: absolute;
+	top: -10px;
+	width: 100%;
+}
+
+.auto-login-title > span {
+	background-color: #fff;
+	padding: 0px 20px;
+	font-size: 12px;
+	color: #aaa;
+}
+
+.auto-login > div > button {
+	margin: 10px 10px;
+	border-radius: 0;
+	width: 90px;
+}
+
+@media (max-width: 768px) {
+	.auto-login > span {
+		left: 30px;
+		right: 30px;
+	}
+
+	.login-box {
+		margin: 0 auto;
+	}
+}

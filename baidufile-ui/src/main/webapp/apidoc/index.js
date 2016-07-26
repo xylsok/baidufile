@@ -10,14 +10,14 @@ var app = angular.module('myApp', ['ngCookies',
     'ui.bootstrap',
     'validation.match',
     'ngFileUpload']);
-app.controller('FileCenterCtrl', function ($scope, $http) {
+app.controller('FileCenterCtrl', function ($scope, $http, $window) {
     var path = 'http://120.76.132.123:8080/api';
     $http.get(path + '/file/getfiles')
         .success(function (data) {
             $scope.files = data;
         });
     $scope.append = function (i, n, d) {
-        $scope.result = 'http://120.76.132.123:8080/play.html?id='+ d.id;
+        $scope.result = 'http://120.76.132.123:8080/play.html?id=' + d.id;
         $scope.files.unshift(d);
     };
     $scope.remove = function (f) {
@@ -26,32 +26,43 @@ app.controller('FileCenterCtrl', function ($scope, $http) {
             return x.id == f.id;
         })
     };
-    $scope.search={
-        keyword:""
+    $scope.search = {
+        keyword: ""
     };
     $scope.submit = function () {
-        $http.get(path + '/file/getsearchfile?name='+$scope.search.keyword)
+        $http.get(path + '/file/getsearchfile?name=' + $scope.search.keyword)
             .success(function (data) {
                 $scope.files = [];
                 $scope.files = data;
             });
     };
-    $scope.success={msg:''};
+    $scope.success = {msg: ''};
 
     $scope.copy = function () {
         var clip = new ZeroClipboard.Client(); //初始化对象
         ZeroClipboard.setMoviePath("ZeroClipboard.swf");//设置flash
-        clip.setHandCursor( true ); //设置手型
+        clip.setHandCursor(true); //设置手型
         clip.addEventListener('mousedown', function (client) {  //创建监听
             clip.setText($scope.result);
-            $scope.success.msg="复制成功！"
+            $scope.success.msg = "复制成功！"
         });
         clip.glue('d_clip_button'); //将flash覆盖至指定ID的DOM上
-        $scope.success.msg="复制成功！"
+        $scope.success.msg = "复制成功！"
     };
     $scope.submit();
-    $scope.userinfo=function(){
+    $scope.userinfo = function () {
         alert("个人资料页暂未实现");
+    };
+    $scope.user={};
+    var username = sessionStorage.getItem('user');
+    if (username) {
+        $scope.user.name = username;
+    } else {
+        $window.location.href = 'http://120.76.132.123:8080/login.html';
+    }
+    $scope.logout=function(){
+        sessionStorage.setItem('user',"");
+        $window.location.href = 'http://120.76.132.123:8080/login.html';
     }
 
 });
@@ -208,16 +219,41 @@ app.controller('UploaderCtrl', function ($scope, $attrs, Upload, $timeout) {
         return '';
     };
 });
-app.controller('PlayCtrl', function ($scope, $http,$stateParams,$location) {
+app.controller('PlayCtrl', function ($scope, $http, $stateParams, $location) {
     var id = $location.absUrl().split("=")[1];
-    $http.get("http://120.76.132.123:8080/api/file/getfile/"+id)
-        .success(function(x){
+    $http.get("http://120.76.132.123:8080/api/file/getfile/" + id)
+        .success(function (x) {
             console.log(x);
-            x.path='http://120.76.132.123:8080/file/'+ x.path;
-            $scope.file=x;
+            x.path = 'http://120.76.132.123:8080/file/' + x.path;
+            $scope.file = x;
         })
-    $scope.close=function(){
+    $scope.close = function () {
         $window.close();
     }
+});
+app.controller('LoginCtrl', function ($scope, $http, $stateParams, $window) {
+    $scope.user = {};
+    $scope.error = '';
+    $scope.submit = function () {
+        console.log($scope.user);
+        if ($scope.user.name == '' || $scope.user.password == '' || !$scope.user.name || !$scope.user.password) {
+            $scope.error = "用户名或密码不能为空！";
+            return false;
+        } else {
+            $http.get('http://120.76.132.123:8080/api/user/getuser?username=' + $scope.user.name + '&passowrd=' + $scope.user.password)
+                .success(function (d) {
+                    if (d) {
+                        sessionStorage.setItem('user', $scope.user.name);
+                        $window.location.href = 'http://120.76.132.123:8080';
+                    } else {
+                        $scope.error = "用户名或密码错误！"
+                    }
+                })
+                .error(function (e) {
+                    $scope.error = "服务器出现错误请稍后重试！"
+                });
+        }
+
+    };
 });
 

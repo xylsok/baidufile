@@ -1,0 +1,111 @@
+
+<!doctype html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" path="ie=edge">
+    <meta name="renderer" path="webkit">
+    <base href="/">
+    <title></title>
+    <meta name="description" path="">
+    <meta name="viewport" path="width=device-width, initial-scale=1,maximum-scale=1.0, user-scalable=0">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) assets/styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="apidoc/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="apidoc/font-awesome/css/font-awesome.css"/>
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css({.tmp,client}) assets/styles/app.css -->
+    <link rel="stylesheet" href="apidoc/app.css">
+    <!-- injector:css -->
+
+
+    <!-- endinjector -->
+    <!-- endbuild -->
+</head>
+<!--<body ng-app="baidufile-ui">-->
+<!--[if lt IE 9]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your
+    experience.</p>
+<![endif]-->
+<!-- Add your site or application path here -->
+<div ui-view=""></div>
+
+
+<!--[if lt IE 9]>
+<script src="apidoc/json3/lib/json3.min.js"></script>
+<![endif]-->
+<!-- build:js(.) app/vendor.js -->
+<!-- bower:js -->
+<script src="apidoc/angular/angular.js"></script>
+<script src="apidoc/index.js"></script>
+<script src="apidoc/jquery/dist/jquery.js"></script>
+<script src="apidoc/json3/lib/json3.js"></script>
+<script src="apidoc/bootstrap/dist/js/bootstrap.js"></script>
+<script src="apidoc/angular-resource/angular-resource.js"></script>
+<script src="apidoc/angular-cookies/angular-cookies.js"></script>
+<script src="apidoc/angular-sanitize/angular-sanitize.js"></script>
+<script src="apidoc/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<script src="apidoc/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="apidoc/angular-validation-match/dist/angular-validation-match.min.js"></script>
+<script src="apidoc/ng-file-upload/ng-file-upload.js"></script>
+
+<!--<div class="navbar navbar-default navbar-static-top" ng-controller="NavbarCtrl">
+    <div class="navbar-header">
+        <a href="/" class="navbar-brand">
+            <img alt="baiduwaimai-logo" src="apidoc/logo.png" width="120px" height="40px" style="margin-top: -10px">
+        </a>
+    </div>
+</div>-->
+<body>
+<div ng-app="myApp">
+    <div class="container" ng-controller="LoginCtrl">
+        <div class="login-box">
+            <!--LOGIN PAD-->
+            <div class="login-pad">
+                <form class="form" name="form" novalidate>
+                    <div class="login-title text-center">
+                        <img alt="baiduwaimai-logo" src="apidoc/logo.png" width="120px" height="40px" style="margin-top: -10px">
+                        <div class="product-name">百度外卖文件管理平台</div>
+                        <span class="product-name">BaiDuWaiMai</span>
+                    </div>
+                    <!--账号-->
+                    <div class="form-group x-box">
+                        <label class="fa fa-user"></label>
+                        <input type="text" name="username" class="form-control" ng-model="user.name"
+                               placeholder="用户名、账号" autofocus required
+                               tabindex="1">
+                    </div>
+                    <!--密码-->
+                    <div class="form-group x-box">
+                        <label class="fa fa-asterisk"></label>
+                        <input type="password" name="password" class="form-control" placeholder="Password"
+                               ng-model="user.password" required tabindex="2">
+                    </div>
+                    <!--错误-->
+                    <div class="form-group" ng-if="error">
+                        <div class="alert alert-danger"><i class="fa fa-warning"></i> {{error}}</div>
+                    </div>
+                    <div class="text-right">
+                        <button class="btn btn-primary btn-sm" type="submit" ng-click="submit()" tabindex="3">登 录
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
+

@@ -62,35 +62,30 @@
 <script src="apidoc/ng-file-upload/ng-file-upload.js"></script>
 <script src="apidoc/ZeroClipboard.js"></script>
 
-<div class="navbar navbar-default navbar-static-top" ng-controller="NavbarCtrl">
-    <div class="container">
-        <div class="navbar-header">
-            <a href="/" class="navbar-brand">
-                <img alt="baiduwaimai-logo" src="apidoc/logo.png" width="120px" height="40px" style="margin-top: -10px">
-            </a>
-        </div>
-        <div collapse="isCollapsed" class="navbar-collapse uib-collapse" id="navbar-main">
 
-            <ul class="nav navbar-nav navbar-right">
-
-                <li ng-if="User && User.role==2">
-                    <a href="#" ng-click="userinfo()">
-                        刘振鹏
-                    </a>
-
-                </li>
-                <!--<li ng-if="User && User.role==2">-->
-                    <!--<a href="{{loginPerson}}">-->
-                        <!--[退出]-->
-                    <!--</a>-->
-
-                <!--</li>-->
-            </ul>
-        </div>
-    </div>
-</div>
 <body>
 <div ng-app="myApp">
+    <div class="navbar navbar-default navbar-static-top" ng-controller="FileCenterCtrl">
+        <div class="container">
+            <div class="navbar-header">
+                <a href="/" class="navbar-brand">
+                    <img alt="baiduwaimai-logo" src="apidoc/logo.png" width="120px" height="40px" style="margin-top: -10px">
+                </a>
+            </div>
+            <div collapse="isCollapsed" class="navbar-collapse uib-collapse" id="navbar-main">
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li ng-if="user">
+                        <input type="button" class="btn btn-link" value="{{user.name}}" ng-click="userinfo()">
+                    </li>
+                    <li ng-if="user">
+                        <input type="button" class="btn btn-link" value="[退出]" ng-click="logout()">
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
     <div class="container" ng-controller="FileCenterCtrl">
 
         <uib-tabset>
