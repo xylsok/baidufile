@@ -11,13 +11,13 @@ var app = angular.module('myApp', ['ngCookies',
     'validation.match',
     'ngFileUpload']);
 app.controller('FileCenterCtrl', function ($scope, $http) {
-    var path = 'http://localhost:8080/api';
+    var path = 'http://120.76.132.123:8080/api';
     $http.get(path + '/file/getfiles')
         .success(function (data) {
             $scope.files = data;
         });
     $scope.append = function (i, n, d) {
-        $scope.result = 'http://localhost:8080/play/'+ d.id;
+        $scope.result = 'http://120.76.132.123:8080/play.html?id='+ d.id;
         $scope.files.unshift(d);
     };
     $scope.remove = function (f) {
@@ -37,26 +37,22 @@ app.controller('FileCenterCtrl', function ($scope, $http) {
             });
     };
     $scope.success={msg:''};
+
     $scope.copy = function () {
-        //var clip = new ZeroClipboard.Client(); // 新建一个对象
-        //clip.setHandCursor( true ); // 设置鼠标为手型
-        //clip.setText($scope.result); // 设置要复制的文本。
-        //// 注册一个 button，参数为 id。点击这个 button 就会复制。
-        //clip.addEventListener( "mouseUp", function(client) {
-        //    alert("复制成功！");
-        //});
-        ////这个 button 不一定要求是一个 input 按钮，也可以是其他 DOM 元素。
-        //clip.glue("copy-botton"); // 和上一句位置不可调换
         var clip = new ZeroClipboard.Client(); //初始化对象
         ZeroClipboard.setMoviePath("ZeroClipboard.swf");//设置flash
         clip.setHandCursor( true ); //设置手型
-        clip.addEventListener('mouseUp', function (client) {  //创建监听
+        clip.addEventListener('mousedown', function (client) {  //创建监听
             clip.setText($scope.result);
             $scope.success.msg="复制成功！"
         });
-        clip.glue( 'd_clip_button'); //将flash覆盖至指定ID的DOM上
+        clip.glue('d_clip_button'); //将flash覆盖至指定ID的DOM上
+        $scope.success.msg="复制成功！"
     };
     $scope.submit();
+    $scope.userinfo=function(){
+        alert("个人资料页暂未实现");
+    }
 
 });
 app.directive('uploader', function () {
@@ -81,7 +77,7 @@ app.controller('UploaderCtrl', function ($scope, $attrs, Upload, $timeout) {
     $scope.extensionSet = {
         common: {
             size: {max: '2GB'},
-            pattern: '.jpg,.png,.zip,.pdf,.iso,.txt,.mp4,.doc,.docx,.ppt,.pptx,.xls,.xlsx'
+            pattern: '.jpg,.png,.pdf,.txt,.mp4'
         },
         image: {size: {max: '5MB'}, pattern: 'image/*'},
         video: {size: {max: '1GB'}, pattern: '.mp4'},
@@ -152,7 +148,7 @@ app.controller('UploaderCtrl', function ($scope, $attrs, Upload, $timeout) {
         if (file) {
             var __path = $scope.path || 'other';
             file.upload = Upload.upload({
-                url: 'http://localhost:8080/api/file/upload',
+                url: 'http://120.76.132.123:8080/api/file/upload',
                 data: {file: file, filepath: 'tas/' + __path + '/'}
             });
             file.upload.then(function (response) {
@@ -214,10 +210,14 @@ app.controller('UploaderCtrl', function ($scope, $attrs, Upload, $timeout) {
 });
 app.controller('PlayCtrl', function ($scope, $http,$stateParams,$location) {
     var id = $location.absUrl().split("=")[1];
-    $http.get("http://localhost:8080/api/file/getfile/"+id)
+    $http.get("http://120.76.132.123:8080/api/file/getfile/"+id)
         .success(function(x){
             console.log(x);
+            x.path='http://120.76.132.123:8080/file/'+ x.path;
             $scope.file=x;
         })
+    $scope.close=function(){
+        $window.close();
+    }
 });
 

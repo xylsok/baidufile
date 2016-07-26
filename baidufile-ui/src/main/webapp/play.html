@@ -113,7 +113,15 @@
                 </div>
             </div>
             <div class="col-md-2">
-                <input type="button" value="下载">
+                <a href="{{file.path}}" class="btn btn-primary btn-sm" >
+                    <i class="fa fa-cloud-download" aria-hidden="true"></i>
+                    下载
+                </a>
+                <br>
+                <a href="#" class="btn btn-warning btn-sm" ng-click="close()">
+                    <i class="fa fa-sign-out" aria-hidden="true"></i>
+                    关闭
+                </a>
             </div>
         </div>
     </div>

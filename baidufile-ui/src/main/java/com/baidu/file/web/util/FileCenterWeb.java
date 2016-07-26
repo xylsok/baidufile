@@ -127,7 +127,7 @@ public class FileCenterWeb {
 
                     fileCenter.setName(filename);
                     fileCenter.setType(fileExtName);
-                    fileCenter.setPath(savePath + ss);
+                    fileCenter.setPath(ss);
 
 
                 }

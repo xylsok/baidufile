@@ -1125,16 +1125,16 @@
                 <global.environment>default</global.environment>
                 <!--<dubbo.registry.address>192.168.1.12:2181</dubbo.registry.address>-->
                 <!--<dubbo.protocol.port>20880</dubbo.protocol.port>-->
-                <jdbc.host>localhost</jdbc.host>
-                <jdbc.port>3306</jdbc.port>
-                <jdbc.username>root</jdbc.username>
-                <jdbc.password>123456</jdbc.password>
-                <jdbc.schema>zzf</jdbc.schema>
-                <!--<jdbc.host>120.76.132.123</jdbc.host>-->
+                <!--<jdbc.host>localhost</jdbc.host>-->
                 <!--<jdbc.port>3306</jdbc.port>-->
                 <!--<jdbc.username>root</jdbc.username>-->
                 <!--<jdbc.password>123456</jdbc.password>-->
-                <!--<jdbc.schema>filecenter</jdbc.schema>-->
+                <!--<jdbc.schema>zzf</jdbc.schema>-->
+                <jdbc.host>120.76.132.123</jdbc.host>
+                <jdbc.port>3306</jdbc.port>
+                <jdbc.username>root</jdbc.username>
+                <jdbc.password>123456</jdbc.password>
+                <jdbc.schema>filecenter</jdbc.schema>
             </properties>
             <activation>
                 <activeByDefault>true</activeByDefault>

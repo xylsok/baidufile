@@ -74,17 +74,17 @@
             <ul class="nav navbar-nav navbar-right">
 
                 <li ng-if="User && User.role==2">
-                    <a href="{{loginPerson}}">
-                        [登录]
+                    <a href="#" ng-click="userinfo()">
+                        刘振鹏
                     </a>
 
                 </li>
-                <li ng-if="User && User.role==2">
-                    <a href="{{loginPerson}}">
-                        [退出]
-                    </a>
+                <!--<li ng-if="User && User.role==2">-->
+                    <!--<a href="{{loginPerson}}">-->
+                        <!--[退出]-->
+                    <!--</a>-->
 
-                </li>
+                <!--</li>-->
             </ul>
         </div>
     </div>
@@ -107,18 +107,21 @@
                     <div class="col-md-3"></div>
                 </div>
                 <div ng-if="result" style="margin-top: 50px;">
-                    <span style="font-size: 26px;font-weight: bold;color: #199712;margin-bottom:10px; " id="t">{{result}}</span>
-                    <span style="font-size: 26px;font-weight: bold;color: #199712;margin-bottom:10px; ">{{success.msg}}</span>
-
+                    <div class="text-center">
+                        <span style="font-size: 26px;font-weight: bold;color: #199712;margin-bottom:10px; " id="t">{{result}}</span>
+                        <span style="font-size: 26px;font-weight: bold;color: #199712;margin-bottom:10px; ">{{success.msg}}</span>
+                    </div>
                     <div class="text-center" style="margin-top: 50px;">
-                        <a href="#"  class="btn btn-default">
-                            <i class="fa fa-internet-explorer" aria-hidden="true"></i>
-                            在浏览器中打开
+                        <a ng-href="{{result}}"  class="btn btn-default" target="_blank">
+                            <i class="fa fa-link" aria-hidden="true"></i>
+                            测试上面的链接
                         </a>
                         <a href="#"  ng-click="copy()" class="btn btn-success" id="d_clip_button">
                             <i class="fa fa-files-o" aria-hidden="true"></i>
                             复制上面的链接
                         </a>
+
+                        <div style="margin-top: 40px;">说明:为保险其间，点按钮复制链接时请多点几次确保成功！</div>
                     </div>
                 </div>
             </uib-tab>
@@ -127,7 +130,7 @@
                     <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3" >
                         <form role="form" ng-submit="submit()">
                             <div class="input-group">
-                                <input class="form-control" placeholder="文件名、标签" ng-model="search.keyword"/>
+                                <input class="form-control" placeholder="文件名" ng-model="search.keyword"/>
                                     <span class="input-group-btn">
                                         <button class="btn btn-default" ng-click="submit()">
                                             <i class="glyphicon glyphicon-search"></i>
@@ -144,18 +147,20 @@
                         <caption></caption>
                         <thead>
                         <tr>
+                            <th>序号</th>
                             <th>文件名称</th>
                             <th>格式</th>
-                            <th>标签</th>
+                            <!--<th>标签</th>-->
                             <th>上传时间</th>
                             <th>操作</th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr ng-repeat="f in files">
-                            <td>{{f.name}}</td>
+                            <td>{{$index+1}}</td>
+                            <td><a href="http://120.76.132.123:8080/play.html?id={{f.id}}" target="_blank">{{f.name}}</a></td>
                             <td>{{f.type}}</td>
-                            <td>{{f.tag}}</td>
+                            <!--<td>{{f.tag}}</td>-->
                             <td>{{f.uploadTime|date:'yyyy-MM-dd HH:mm:ss'}}</td>
                             <td>
                                 <input type="button"
